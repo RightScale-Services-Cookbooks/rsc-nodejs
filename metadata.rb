@@ -10,4 +10,5 @@ depends 'nodejs', '1.3.0'
 depends "rightscale"
 
 recipe "rsc-nodejs::default", "Install node.js for use with RightScale Servers" 
-
+recipe "rsc-nodejs::install_npm_packages", "Install npm packages"
+recipe "rsc-nodejs::do_update_code", "Update code from repository" 
