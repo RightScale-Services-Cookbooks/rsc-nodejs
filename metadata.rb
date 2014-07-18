@@ -10,3 +10,4 @@ depends 'nodejs', '1.3.0'
 depends "rightscale"
 
 recipe "rsc-nodejs::default", "Install node.js for use with RightScale Servers" 
+

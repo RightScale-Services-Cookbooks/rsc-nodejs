@@ -22,9 +22,6 @@ rightscale_marker :begin
 
 include_recipe 'nodejs::default'
 
-set[:app][:ip]=node[:cloud][:private_ips][0]
-set[:app][:port]=node[:nginx][:configuration][:port]
-
 log "  Application IP is #{node[:app][:ip]}"
 log "  Application port is #{node[:app][:port]}"
 
