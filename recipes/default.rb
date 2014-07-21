@@ -22,10 +22,11 @@ rightscale_marker :begin
 
 include_recipe 'nodejs::default'
 
+
 log "  Application IP is #{node[:app][:ip]}"
 log "  Application port is #{node[:app][:port]}"
 
-unless node[:cloud][:provider]=='vagrant'
+if node[:cloud]
   right_link_tag "appserver:active=true"
   right_link_tag "appserver:listen_ip=#{node[:app][:ip]}"
   right_link_tag "appserver:listen_port=#{node[:app][:port]}"
