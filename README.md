@@ -1,4 +1,4 @@
-# rsc-nodejs-cookbook
+# rsc-nodejs cookbook
 
 TODO: Enter the cookbook description here.
 

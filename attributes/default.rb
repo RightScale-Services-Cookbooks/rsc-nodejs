@@ -3,7 +3,7 @@
 #else
 #  default[:app][:ip]="127.0.0.1"
 #end
-default[:app][:port]=80 #port is hard coded in nginx
+default[:app][:port]="80" #port is hard coded in nginx
 default[:app][:destination] = '/usr/share/nginx/html'
 default[:app][:user]='nginx'
 
