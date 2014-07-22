@@ -21,15 +21,12 @@ rightscale_marker :begin
 
 
 include_recipe 'nodejs::default'
-ruby_block "set ip address" do
-  block do
-    node.override[:app][:ip]=node[:cloud][:private_ips][0]
-  end
-  action :create
-end
+
+node[:app][:ip]=node[:cloud][:private_ips][0]
 
 log "  Application IP is #{node[:app][:ip]}"
 log "  Application port is #{node[:app][:port]}"
+
 if node[:cloud]
   right_link_tag "appserver:active=true"
   right_link_tag "appserver:listen_ip=#{node[:app][:ip]}"
