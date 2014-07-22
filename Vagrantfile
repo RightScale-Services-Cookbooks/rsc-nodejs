@@ -77,7 +77,7 @@ Vagrant.configure("2") do |config|
       :vagrant => {
         :box_name => 'rsc-nodejs'
       },
-      cloud:{private_ips: ['1.2.3.4'],provider: 'vagrant'},
+     # cloud:{private_ips: ['1.2.3.4'],provider: 'vagrant'},
        nodejs:{
         install_method: 'source',
         version: '0.10.29',
