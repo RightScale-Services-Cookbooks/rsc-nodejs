@@ -27,12 +27,14 @@ ohai "reload cloud plugin" do
   action :reload
 end
 
-log "######## app: #{node[:app].inspect}"
-log "####### cloud: #{node[:cloud].inspect}"
+ruby_block "set private ip's" do
+  block do
+    #node[:app]= Hash.new
+    node.override[:app][:ip]=node[:cloud][:private_ips][0]
 
-
-#node[:app]= Hash.new
-node.override[:app][:ip]=node[:cloud][:private_ips][0]
+  end
+  action :create
+end
 
 log "  Application IP is #{node[:app][:ip]}"
 log "  Application port is #{node[:app][:port]}"
