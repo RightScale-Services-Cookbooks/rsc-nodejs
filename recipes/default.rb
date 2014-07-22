@@ -22,8 +22,14 @@ rightscale_marker :begin
 
 include_recipe 'nodejs::default'
 
+ohai "reload cloud plugin" do
+  plugin 'cloud'
+  action :reload
+end
+
 log "######## app: #{node[:app].inspect}"
 log "####### cloud: #{node[:cloud].inspect}"
+
 
 #node[:app]= Hash.new
 node.override[:app][:ip]=node[:cloud][:private_ips][0]
