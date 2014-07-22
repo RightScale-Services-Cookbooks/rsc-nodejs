@@ -8,7 +8,14 @@ version          '0.1.0'
 
 depends 'nodejs', '1.3.0'
 depends "rightscale"
+depends "repo"
 
 recipe "rsc-nodejs::default", "Install node.js for use with RightScale Servers" 
 recipe "rsc-nodejs::install_npm_packages", "Install npm packages"
 recipe "rsc-nodejs::do_update_code", "Update code from repository" 
+
+attribute "nodejs/version",
+  :display_name => "nodejs version",
+  :description => "Indicate which version of nodejs to install",
+  :required => "optional",
+  :recipes => ['rsc-nodejs::default']
