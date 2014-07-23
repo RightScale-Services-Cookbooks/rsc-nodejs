@@ -1,6 +1,6 @@
 rightscale_marker :begin
 
-node.override[:app][:destination] = "#{node.override[:app][:destination]}/#{node[:nodejs][:app_name]}"
+node.override[:app][:destination] = "#{node[:repo][:default][:destination]}/#{node[:nodejs][:app_name]}"
 
 log "  Updating project code repository"
 log "  Starting code update sequence"
