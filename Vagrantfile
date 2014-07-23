@@ -77,16 +77,28 @@ Vagrant.configure("2") do |config|
       :vagrant => {
         :box_name => 'rsc-nodejs'
       },
-     # cloud:{private_ips: ['1.2.3.4'],provider: 'vagrant'},
+      cloud:{private_ips: ['1.2.3.4'],provider: 'vagrant'},
        nodejs:{
         install_method: 'source',
         version: '0.10.29',
+        app_name: 'myapp',
     },
-      }
+    repo:{default:{
+    destination: '/home/webapps',
+    repository: 'https://github.com/heroku/node-js-sample.git',
+    version: 'master',
+    provider: 'repo_git',
+   perform_action: 'pull',
+    },
+     }
+    }
     
     chef.run_list = [
-
-      "recipe[rsc-nodejs::default]", 
+        "recipe[git]",
+        "recipe[repo::default]",
+        "recipe[rsc-nodejs::default]",
+        "recipe[rsc-nodejs::do_update_code]", 
+        "recipe[rsc-nodejs::install_npm_packages]", 
     ]
   end
 end
