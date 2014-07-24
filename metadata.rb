@@ -4,7 +4,7 @@ maintainer_email 'cookbooks@rightscale.com'
 license          'Apache 2.0'
 description      'Installs/Configures rsc-nodejs'
 long_description 'Installs/Configures rsc-nodejs for use with Rightscale servers'
-version          '0.1.0'
+version          '0.1.1'
 
 depends 'nodejs', '1.3.0'
 depends "rightscale"
