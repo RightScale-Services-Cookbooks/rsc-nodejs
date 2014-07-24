@@ -21,6 +21,13 @@ attribute "nodejs/version",
   :required => "optional",
   :recipes => ['rsc-nodejs::default']
 
+attribute "npm/version",
+  :display_name => "npm version",
+  :description => "Indicate which version of npm to install",
+  :required => "optional",
+  :recipes => ['rsc-nodejs::default']
+
+
 attribute "app/port",
   :display_name => "application port",
   :description => "Indicate which port to use",

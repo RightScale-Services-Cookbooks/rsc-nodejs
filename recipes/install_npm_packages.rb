@@ -2,7 +2,7 @@
 
 rightscale_marker :begin
 
-include_recipe "nodejs::npm"
+# include_recipe "nodejs::npm" #not needed, npm is already installed with nodejs
 
 bash "install npms from package" do
    code <<-EOH
