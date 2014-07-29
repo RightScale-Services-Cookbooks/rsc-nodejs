@@ -9,3 +9,4 @@ default[:app][:user]='root'
 
 default[:nodejs][:version]="0.10.29"
 default[:nodejs][:app_name]="myapp"
+default[:nodejs][:user]="nodejs"

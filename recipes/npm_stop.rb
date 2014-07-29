@@ -2,8 +2,9 @@ rightscale_marker :begin
 
 bash "start node" do
   cdw node[:app][:destination]
+  user node[:nodejs][:user]
    code <<-EOH
-    NODE_ENV=#{node['nodejs']['environment']} #{node['nodejs']['dir']}/bin/npm stop
+    pkill -9 node
   EOH
   
 end

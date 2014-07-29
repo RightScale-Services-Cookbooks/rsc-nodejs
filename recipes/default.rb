@@ -27,6 +27,13 @@ node.override[:app][:ip]=node[:cloud][:private_ips][0]
 log "  Application IP is #{node[:app][:ip]}"
 log "  Application port is #{node[:app][:port]}"
 
+# create user for node to run as.
+user "#{node[:nodejs][:user]}" do
+  comment "nodejs"
+  system true
+  shell "/bin/false"
+end
+
 unless node[:cloud][:provider]=="vagrant"
   right_link_tag "appserver:active=true"
   right_link_tag "appserver:listen_ip=#{node[:app][:ip]}"
