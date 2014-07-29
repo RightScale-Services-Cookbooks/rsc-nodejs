@@ -9,6 +9,7 @@ version          '0.2.0'
 depends 'nodejs', '1.3.0'
 depends "rightscale"
 depends "repo"
+depends "logrotate"
 
 
 recipe "rsc-nodejs::default", "Install node.js for use with RightScale Servers" 
@@ -16,7 +17,8 @@ recipe "rsc-nodejs::install_npm_packages", "Install npm packages"
 recipe "rsc-nodejs::do_update_code", "Update code from repository" 
 recipe "rsc-nodejs::start_npm", "run npm start on destination path" 
 recipe "rsc-nodejs::stop_npm", "run npm stop on destination path" 
-recipe "rsc-nodejs::resstart_npm", "run npm restart on destination path" 
+recipe "rsc-nodejs::restart_npm", "run npm restart on destination path" 
+recipe "rsc-nodejs::logrotate", "setup logrotate for node" 
 recipe "rsc-nodejs::setup_vhost", "Setup the vhost with the application specifics. " 
 
 attribute "nodejs/version",
