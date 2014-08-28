@@ -73,6 +73,8 @@ Vagrant.configure("2") do |config|
   #  inline: "yum -y install java-1.7*"
 
   config.vm.provision :chef_solo do |chef|
+    #chef.log_level = 'debug'
+    #chef.verbose_logging = true
     chef.json = {
       :vagrant => {
         :box_name => 'rsc-nodejs'
@@ -82,6 +84,7 @@ Vagrant.configure("2") do |config|
         install_method: 'source',
         version: '0.10.29',
         app_name: 'myapp',
+        environment: 'development'
     },
     repo:{default:{
     destination: '/home/webapps',
@@ -99,6 +102,7 @@ Vagrant.configure("2") do |config|
         "recipe[rsc-nodejs::default]",
         "recipe[rsc-nodejs::do_update_code]", 
         "recipe[rsc-nodejs::install_npm_packages]", 
+        "recipe[rsc-nodejs::npm_start]", 
     ]
   end
 end

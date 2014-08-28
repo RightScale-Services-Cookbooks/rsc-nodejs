@@ -27,6 +27,8 @@ node.override[:app][:ip]=node[:cloud][:private_ips][0]
 log "  Application IP is #{node[:app][:ip]}"
 log "  Application port is #{node[:app][:port]}"
 
+node.override[:app][:destination] = "#{node[:repo][:default][:destination]}/#{node[:nodejs][:app_name]}"
+
 # create user for node to run as.
 user "#{node[:nodejs][:user]}" do
   comment "nodejs"
