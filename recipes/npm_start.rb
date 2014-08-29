@@ -4,13 +4,15 @@ directory "/var/log/nginx" do
   action :create
 end
 
-bash "start node" do
-  code <<-EOH
-   export NODE_ENV=#{node['nodejs']['environment']} 
-   cd #{node[:app][:destination]}
-   #{node['nodejs']['dir']}/bin/npm start > /var/log/nginx/node.log
-  EOH
-  action :run
+template "/etc/init.d/nodejs" do
+  source "nodejs.erb"
+  mode 755
+  action :create
+end
+
+
+service "nodejs" do 
+  action :start
 end
 
 rightscale_marker :end
